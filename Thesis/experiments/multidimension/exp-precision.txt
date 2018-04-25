@@ -1,0 +1,6 @@
+数据集	EDR	LCS	NewGotoh
+BirdChicken-60	0.50	0.50	0.86	
+BirdChicken-100	0.50	0.50	0.81	
+BirdChicken-80	0.50	0.76	0.69	
+BirdChicken-20	0.50	0.50	0.77	
+BirdChicken-40	0.50	0.79	0.77	

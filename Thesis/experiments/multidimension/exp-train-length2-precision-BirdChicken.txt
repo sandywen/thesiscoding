@@ -1,0 +1,10 @@
+dataset	DTW	EDR	LCS	NewGotoh
+BirdChicken-20	1.00	1.00	0.92	1.00
+BirdChicken-40	1.00	1.00	0.92	1.00
+BirdChicken-60	1.00	0.60	0.88	0.95	
+BirdChicken-80	0.50	0.45	0.83	0.57	
+BirdChicken-100	0.77	0.60	0.92	0.95	
+BirdChicken-120	0.50	0.50	0.92	1.00
+BirdChicken-140	0.60	0.50	0.83	0.92	
+BirdChicken-160	0.50	0.30	0.79	0.55	
+	

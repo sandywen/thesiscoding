@@ -1,0 +1,30 @@
+dataset	DTW	EDR	LCS	ERP	NewGotoh
+BirdChicken-0.7	0.00	0.00	0.00	0.00	
+BirdChicken-0.1	0.00	0.00	0.00	0.00	
+BirdChicken-0.6	0.00	0.00	0.00	0.00	
+BirdChicken-0.7999999999999999	0.00	0.00	0.00	0.00	
+BirdChicken-0.30000000000000004	0.00	0.00	0.00	0.00	
+BirdChicken-0.8999999999999999	0.00	0.00	0.00	0.00	
+BirdChicken-0.4	0.00	0.00	0.00	0.00	
+BirdChicken-0.5	0.00	0.00	0.00	0.00	
+BirdChicken-0.2	0.00	0.00	0.00	0.00	
+dataset	DTW	EDR	LCS	ERP	NewGotoh
+BirdChicken-0.7	�	�	�	�	
+BirdChicken-0.1	�	�	�	�	
+BirdChicken-0.6	�	�	�	�	
+BirdChicken-0.7999999999999999	�	�	�	�	
+BirdChicken-0.30000000000000004	�	�	�	�	
+BirdChicken-0.8999999999999999	�	�	�	�	
+BirdChicken-0.4	�	�	�	�	
+BirdChicken-0.5	�	�	�	�	
+BirdChicken-0.2	�	�	�	�	
+dataset	DTW	EDR	LCS	NewGotoh
+BirdChicken-0.7	1.00	1.00	0.50	0.65	
+BirdChicken-0.1	1.00	1.00	0.85	1.00	
+BirdChicken-0.6	1.00	1.00	0.50	0.65	
+BirdChicken-0.7999999999999999	1.00	1.00	0.50	0.65	
+BirdChicken-0.30000000000000004	1.00	1.00	0.55	0.90	
+BirdChicken-0.8999999999999999	1.00	1.00	0.50	0.70	
+BirdChicken-0.4	1.00	1.00	0.55	0.70	
+BirdChicken-0.5	1.00	1.00	0.50	0.70	
+BirdChicken-0.2	1.00	1.00	0.65	0.95	

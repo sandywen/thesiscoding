@@ -1,0 +1,16 @@
+数据集	DTW	EDR	LCS	ERP	NewGotoh
+BirdChicken-60	1.00	1.00	0.76	1.00	1.00	
+BirdChicken-100	0.81	0.71	0.50	0.92	0.92	
+BirdChicken-80	0.92	0.95	0.50	0.88	0.92	
+BirdChicken-20	1.00	1.00	0.78	1.00	1.00	
+BirdChicken-40	1.00	0.95	0.78	1.00	1.00	
+数据集	DTW	EDR	LCS	ERP	NewGotoh
+BirdChicken-20	1.00	1.00	0.78	1.00	1.00
+BirdChicken-40	1.00	0.95	0.78	1.00	1.00
+BirdChicken-60	1.00	1.00	0.76	1.00	1.00
+BirdChicken-80	0.92	0.95	0.50	0.88	0.92
+BirdChicken-100	0.81	0.71	0.50	0.92	0.92	
+BirdChicken-120	0.50	0.50	0.50	0.66	0.79	
+BirdChicken-140	0.66	0.66	0.50	0.85	0.85
+BirdChicken-160	0.60	0.50	0.50	0.50	0.76	
+	

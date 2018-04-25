@@ -1,0 +1,31 @@
+数据集	DTW	EDR	LCS	ERP	NewGotoh
+BirdChicken-0.1	1.00	1.00	0.50	1.00	1.00
+BirdChicken-0.2	1.00	1.00	0.50	1.00	1.00	
+BirdChicken-0.3	1.00	1.00	0.50	1.00	1.00	
+BirdChicken-0.4	1.00	1.00	0.50	0.92	0.92	
+BirdChicken-0.5	1.00	1.00	0.50	0.83	0.83	
+	
+数据集	DTW	EDR	LCS	ERP	NewGotoh
+BirdChicken-0.7	1.00	1.00	0.50	0.60	0.60	
+BirdChicken-0.1	1.00	1.00	0.50	1.00	1.00	
+BirdChicken-0.6	1.00	1.00	0.50	0.71	0.71	
+BirdChicken-0.7999999999999999	1.00	1.00	0.50	0.45	0.45	
+BirdChicken-0.30000000000000004	1.00	1.00	0.50	1.00	1.00	
+BirdChicken-0.8999999999999999	0.92	0.92	0.50	0.30	0.38	
+BirdChicken-0.4	1.00	1.00	0.50	0.92	0.92	
+BirdChicken-0.5	1.00	1.00	0.50	0.83	0.83	
+BirdChicken-0.2	1.00	1.00	0.50	1.00	1.00	
+数据集	DTW	EDR	LCS	ERP	NewGotoh	
+BirdChicken-0.1	1.00	1.00	0.50	1.00	1.00
+BirdChicken-0.2	1.00	1.00	0.50	1.00	1.00		
+BirdChicken-0.3	1.00	1.00	0.50	1.00	1.00
+BirdChicken-0.4	1.00	1.00	0.50	0.92	0.92	
+BirdChicken-0.5	1.00	1.00	0.50	0.83	0.83
+BirdChicken-0.6	1.00	1.00	0.50	0.71	0.71
+BirdChicken-0.7	1.00	1.00	0.50	0.60	0.60	
+BirdChicken-0.8	1.00	1.00	0.50	0.45	0.45	
+BirdChicken-0.9	0.92	0.92	0.50	0.30	0.38	
+	
+	
+数据集	DTW	EDR	LCS	ERP	NewGotoh
+数据集	DTW	EDR	LCS	ERP	NewGotoh
