@@ -1,5 +1,6 @@
 package accuracyexp;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 import utils.DataHandler;
@@ -10,47 +11,56 @@ public class AccuracyAbsenceLengthExp {
 		
 		MethodAccuracy exp = new MethodAccuracy();
 		DataHandler handler = new DataHandler();
+		DecimalFormat decimalFormat = new DecimalFormat("0.00");
 		
-		String path   = "/Users/wencheng/thesiscoding/Thesis/testfile_train_length/50words";
+		String path   = "/Users/wencheng/thesiscoding/Thesis/testfile_absence";
 		
 		ArrayList<String> dir_list = handler.getFileList(path);
 		
-		String header = "数据集\tDTW\tEDR\tLCS\tERP\tNewGotoh";
+		String header = "dataset\tDTW\tEDR\tLCS\tERP\tNewGotoh";
 		
-		String output_precision = "/Users/wencheng/thesiscoding/Thesis/experiments/exp-precision-train-length-50words.txt";
-		String output_recall = "/Users/wencheng/thesiscoding/Thesis/experiments/exp-recall-train-length-50words.txt";
-		String output_fscore = "/Users/wencheng/thesiscoding/Thesis/experiments/exp-fscore-train-length-50words.txt";
+		String output = "/Users/wencheng/thesiscoding/Thesis/experiments/exp-accuracy-length-";
+		String log = "/Users/wencheng/thesiscoding/Thesis/experiments/exp-accuracy-length-log-";
 		
-		exp.writeFile(output_precision, header);
-		exp.writeFile(output_recall, header);
-		exp.writeFile(output_fscore, header);
+		
 		
 		String[] methods = {"DTW","EDR","LCS","ERP","NewGotoh"};
 		for(String dir : dir_list) {
 			
-			String precision_line = dir + "\t";
-			String recall_line    = dir + "\t";
-			String fscore_line    = dir + "\t";
-			
-			for(String str : methods) {
-				String result = exp.getComparedResult( path, dir, str);
-				if(result.equals("")) {
-					break;
+			String output_precision = output + dir + ".txt";
+			String output_log = log + dir + ".txt";
+			exp.writeFile(output_precision, header);
+						
+			for(double i = 0.1; i <= 0.6; i += 0.1) {
+				String up_dir = dir+"-"+decimalFormat.format(i);
+				String precision_line = up_dir + "\t";
+		
+				for(String str : methods) {
+					ArrayList<String> dir_down_list = handler.getFileList(path+"/"+dir+"/"+up_dir);
+					double accuracy = 0.0;
+					exp.writeFile(output_log, str);
+					for(String down_dir : dir_down_list) {
+						String result = exp.getComparedResult( path+"/"+dir+"/"+up_dir, down_dir, str);
+						if(result.equals("")) {
+							break;
+						}
+						String[] line = result.split("\t");
+						accuracy += Double.parseDouble(line[1]);
+						exp.writeFile(output_log, down_dir+"\t"+line[1]);
+//						System.out.println(down_dir+"\t"+line[1]);
+						
+					}
+					precision_line += decimalFormat.format(accuracy/10) + "\t";
+					
 				}
-				String[] line = result.split("\t");
+				System.out.println("accuracy: " + precision_line);
 				
-				precision_line += line[2] + "\t";
-				recall_line    += line[3] + "\t";
-				fscore_line    += line[4] + "\t";
+				exp.writeFile(output_precision, precision_line);
 			}
 			
-			System.out.println("precision: " + precision_line);
-			System.out.println("recall: " + recall_line);
-			System.out.println("fscore: " + fscore_line);
 			
-			exp.writeFile(output_precision, precision_line);
-			exp.writeFile(output_recall, recall_line);
-			exp.writeFile(output_fscore, fscore_line);
+			
+
 		}
 		
 	}

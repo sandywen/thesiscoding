@@ -47,9 +47,9 @@ public class AbsenceRateForOneDimensionTrain {
 			double[] vec = entry_test.getKey();
 			String class_label = entry_test.getValue();
 			
-			String line = class_label + ","+ rate.delete_timeseries_random(vec, delete_rate);
+//			String line = class_label + ","+ rate.delete_timeseries_random(vec, delete_rate);
 			
-			acc.writeFile(output_file, line);
+//			acc.writeFile(output_file, line);
 		}
 		
 		

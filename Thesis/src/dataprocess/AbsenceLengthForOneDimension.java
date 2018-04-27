@@ -3,6 +3,7 @@ package dataprocess;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -36,11 +37,12 @@ public class AbsenceLengthForOneDimension {
 	}
 	
 	
-	public void delete(String dest_path, String source_path, int delete_length) {
+	public void delete(String dest_path, String source_path,
+			double delete_rate, int seed) {
 		
 		//mk dir
 		File dest_dir = new File(dest_path);
-		if(dest_dir.mkdir()) {
+		if(dest_dir.mkdirs()) {
 			System.out.println("目标文件夹创建成功");
 		}
 		
@@ -48,29 +50,32 @@ public class AbsenceLengthForOneDimension {
 		MethodAccuracy acc = new MethodAccuracy();
 		ArrayList<String> file_list = acc.getFileList(source_path);
 		String output_file = dest_path+"/";
-		HashMap<double[], String> train_map = null;
+		HashMap<double[], String> test_map = null;
 		
 		for(String file_name : file_list) {
 			if(file_name.contains("TRAIN")) {
 				copyFile(source_path+"/"+file_name, dest_path+"/"+file_name);
 			}else if(file_name.contains("TEST")) {
-				train_map = acc.readFile(source_path+"/"+file_name);
+				test_map = acc.readFile(source_path+"/"+file_name);
 				output_file += file_name; 
 			}
 		}
 		
 		//delete train file
 	
-		if(train_map == null) {
+		if(test_map == null) {
 			return;
 		}
-		for(Map.Entry<double[], String> entry_test: train_map.entrySet()) {
+		for(Map.Entry<double[], String> entry_test: test_map.entrySet()) {
 			double[] vec = entry_test.getKey();
 			String class_label = entry_test.getValue();
 			
-			Random rand = new Random(5);
+			Random rand = new Random(seed);
 			
-			int low = rand.nextInt(vec.length-delete_length);
+			int delete_length = (int) (delete_rate * vec.length);
+			System.out.println(delete_length);
+			int low = rand.nextInt(vec.length - delete_length);
+//			System.out.println(low);
 			int high = low + delete_length - 1;
 			
 			String line = class_label + ","+ delete_timeseries(vec, low, high);
@@ -83,17 +88,24 @@ public class AbsenceLengthForOneDimension {
 	
 	public static void main(String[] args) {
 		
-		String source_path = "/Users/wencheng/test";
+		String source_path = "/Users/wencheng/thesiscoding/Thesis/testfile";
 		String dest_path = "/Users/wencheng/thesiscoding/Thesis/testfile_absence";
 		
 		MethodAccuracy exp = new MethodAccuracy();
 		AbsenceLengthForOneDimension absence = new AbsenceLengthForOneDimension();
+		DecimalFormat decimalFormat = new DecimalFormat("0.00");
 		
 		ArrayList<String> dir_list = exp.getFileList(source_path);
 		
 		for(String dir : dir_list) {
-			for(int i = 20; i <= 100; i += 20) {
-				absence.delete(dest_path+"/"+dir+"-"+i, source_path+"/"+dir, i);
+			for(double i = 0.1; i <= 0.6; i += 0.1) {
+				String up_dir = dir + "/" + dir + "-" + decimalFormat.format(i);
+				for(int j = 0; j < 10; j++) {
+					String down_dir = dir + decimalFormat.format(i) +"-con-" + j;
+					absence.delete(dest_path + "/" + up_dir + "/" + down_dir,
+							source_path + "/" + dir, i, j);
+				}
+				
 			}
 		}
 

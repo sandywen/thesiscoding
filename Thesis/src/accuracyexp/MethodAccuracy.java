@@ -31,7 +31,7 @@ public class MethodAccuracy {
 	private final double lcss_delta = 1.0;
 	private final double lcss_epsilon = 0.4;
 	private double co = 1.0;
-	private double cr = 1.0;
+	private double cr = 0.2;
 		
 	/**
 	 * get the accuracy of compared methods 
