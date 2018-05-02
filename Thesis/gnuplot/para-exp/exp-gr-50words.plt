@@ -1,11 +1,11 @@
 set output "/Users/wencheng/thesis/WenCheng/thuthesis/figures/exp-gr-50words.eps"
 set key inside right bottom
 set title "50words" font "Verdana,25" 
-set ylabel ""
+set ylabel "precision" font "Verdana,20" 
 set auto y
 set xlabel "gr" font "Verdana,25"
 unset logscale y
-set ytics font "Verdana,18"
+set ytics font "Verdana,20"
 set xtics font "Verdana,18"
 set style data linespoints
 set style fill pattern 1 border -1

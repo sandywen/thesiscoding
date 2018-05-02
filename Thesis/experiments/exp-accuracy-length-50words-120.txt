@@ -1,0 +1,1 @@
+数据集	DTW	EDR	LCS	ERP	NewGotoh

@@ -9,9 +9,7 @@ import utils.DataHandler;
 public class ParameterTuningExp {
 	
 	public static void main(String[] args) {
-		
-		
-		
+			
 		String path   = "/Users/wencheng/thesiscoding/Thesis/testfile";
 		String output = "/Users/wencheng/thesiscoding/Thesis/experiments/exp-para-";
 		

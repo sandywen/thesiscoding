@@ -1,13 +1,19 @@
 package utils;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.Random;
+
+import de.lmu.ifi.dbs.elki.data.DoubleVector;
+import de.lmu.ifi.dbs.elki.data.NumberVector;
+import de.lmu.ifi.dbs.elki.utilities.pairs.Pair;
 
 public class DataHandler {
 	
@@ -115,6 +121,42 @@ public void writeFile(String file, String line) {
 		}
 
 		return result;
+	}
+	
+	public ArrayList<String> readFile(String filepath, String symbol){
+		ArrayList<String> timeseries_list = new ArrayList<>();
+		try{
+            BufferedReader br = new BufferedReader(new FileReader(filepath));//构造一个BufferedReader类来读取文件
+            String line = null;
+            while((line = br.readLine())!=null){//使用readLine方法，一次读一行
+            	
+            	timeseries_list.add(line);
+            }
+            br.close();    
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+		
+		return timeseries_list;
+		
+	}
+	
+	public Pair<NumberVector,String> stringTodouble(String line, String symbol){
+		
+		String[] array = line.split(symbol);
+    	int length = array.length;
+    	
+    	String class_str = array[0];
+    	double[] timeseries = new double[length-1];
+    	for(int i = 0; i < length-1; i++){
+    		timeseries[i] = Double.parseDouble(array[i+1]);
+    	}
+    	
+    	//normalization
+    	normalization(timeseries);
+    	NumberVector vec = new DoubleVector(timeseries);
+		return new Pair<NumberVector, String>(vec,class_str);
+		
 	}
 
 }
